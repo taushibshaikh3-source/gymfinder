@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +18,7 @@
     <nav class="navbar">
 
         <div class="logo">
-            <span>GYM</span>FINDER
+            <span>FitSphere</span> 360
         </div>
 
         <div class="nav-links">
@@ -31,24 +32,24 @@
 
     </nav>
 
-
     <!-- LOGIN SECTION -->
     <section class="section">
 
         <p class="section-label">WELCOME BACK</p>
 
         <h1>Login as {{ role|capitalize }}</h1>
+
         <p>
             Login to access your FitSphere 360 account.
         </p>
 
-
         <form method="POST"
               action="/login"
               style="max-width:500px; margin-top:35px;">
-              <input type="hidden"
-       name="role"
-       value="{{ role }}">
+
+            <input type="hidden"
+                   name="role"
+                   value="{{ role }}">
 
             <label>Email</label>
 
@@ -64,7 +65,6 @@
                           border:1px solid #41464b;
                           border-radius:6px;">
 
-
             <label>Password</label>
 
             <input type="password"
@@ -79,39 +79,30 @@
                           border:1px solid #41464b;
                           border-radius:6px;">
 
-
             <button type="submit"
                     class="view-gym"
                     style="width:100%;">
-
                 Login
-
             </button>
 
         </form>
 
-
         <p style="margin-top:25px;">
-
             Don't have an account?
 
             <a href="/signup"
                style="color:#b8ff00;">
-
                 Sign Up
-
             </a>
-
         </p>
 
     </section>
-
 
     <!-- FOOTER -->
     <footer>
 
         <div class="footer-logo">
-            <span>GYM</span>FINDER
+            <span>FitSphere</span> 360
         </div>
 
         <p>
@@ -127,3 +118,4 @@
 </body>
 
 </html>
+```
