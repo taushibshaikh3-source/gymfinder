@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
+import os
 
 app = Flask(__name__)
 
@@ -12,8 +13,13 @@ app.secret_key = "gymfinder_secret_key"
 
 def get_db_connection():
 
+    database_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "gym.db"
+    )
+
     connection = sqlite3.connect(
-        "gym.db",
+        database_path,
         timeout=10
     )
 
@@ -24,8 +30,6 @@ def get_db_connection():
     )
 
     return connection
-
-
 # =========================================================
 # HOME
 # =========================================================
