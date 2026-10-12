@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | GymFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>GYM</span>FINDER
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/gyms">
+                Gyms
+            </a>
+
+            <a href="/gyms">
+                Trainers
+            </a>
+
+            <a href="/gyms">
+                Membership
+            </a>
+
+            <a href="/dashboard">
+                Dashboard
+            </a>
+
+            <a href="/logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- DASHBOARD -->
+
+    <section class="section">
+
+        <p class="section-label">
+            MY ACCOUNT
+        </p>
+
+
+        <h1>
+            Welcome, {{ name }} 👋
+        </h1>
+
+
+        <p style="color:#b8ff00; margin-top:10px;">
+            Account Type: {{ role|capitalize }}
+        </p>
+
+
+        <p>
+            Welcome to your GymFinder dashboard.
+        </p>
+
+
+
+        <!-- DASHBOARD OPTIONS -->
+
+        <div class="gym-grid"
+             style="margin-top:40px;">
+
+
+            <!-- =========================================
+                 TRAINEE DASHBOARD
+            ========================================== -->
+
+            {% if role == "trainee" %}
+
+
+                <!-- FIND GYMS -->
+
+                <div class="gym-card">
+
+                    <div class="gym-card-content">
+
+                        <h2>
+                            🏋️ Find Gyms
+                        </h2>
+
+                        <p>
+                            Explore gyms based on
+                            location, price and rating.
+                        </p>
+
+
+                        <a href="/gyms"
+                           class="view-gym"
+                           style="
+                               display:block;
+                               text-align:center;
+                               text-decoration:none;
+                               margin-top:20px;
+                           ">
+
+                            Explore Gyms
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FIND TRAINERS -->
+
+                <div class="gym-card">
+
+                    <div class="gym-card-content">
+
+                        <h2>
+                            👨‍🏫 Find Trainers
+                        </h2>
+
+                        <p>
+                            Discover trainers based on
+                            specialization and availability.
+                        </p>
+
+
+                        <a href="/gyms"
+                           class="view-gym"
+                           style="
+                               display:block;
+                               text-align:center;
+                               text-decoration:none;
+                               margin-top:20px;
+                           ">
+
+                            Find Trainers
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MEMBERSHIP -->
+
+                <div class="gym-card">
+
+                    <div class="gym-card-content">
+
+                        <h2>
+                            💳 Membership
+                        </h2>
+
+                        <p>
+                            Explore gym membership plans.
+                        </p>
+
+
+                        <a href="/gyms"
+                           class="view-gym"
+                           style="
+                               display:block;
+                               text-align:center;
+                               text-decoration:none;
+                               margin-top:20px;
+                           ">
+
+                            View Gym Memberships
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+            <!-- =========================================
+                 TRAINER DASHBOARD
+            ========================================== -->
+
+            {% elif role == "trainer" %}
+
+
+                <!-- MY PROFILE -->
+
+                <div class="gym-card">
+
+                    <div class="gym-card-content">
+
+                        <h2>
+                            👤 My Profile
+                        </h2>
+
+                        <p>
+                            Manage your trainer profile,
+                            specialization and experience.
+                        </p>
+
+
+                        <a href="#"
+                           class="view-gym"
+                           style="
+                               display:block;
+                               text-align:center;
+                               text-decoration:none;
+                               margin-top:20px;
+                           ">
+
+                            Coming Soon
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BOOKINGS -->
+
+                <div class="gym-card">
+
+                    <div class="gym-card-content">
+
+                        <h2>
+                            📅 Bookings
+                        </h2>
+
+                        <p>
+                            View and manage your
+                            trainee bookings.
+                        </p>
+
+
+                        <a href="#"
+                           class="view-gym"
+                           style="
+                               display:block;
+                               text-align:center;
+                               text-decoration:none;
+                               margin-top:20px;
+                           ">
+
+                            Coming Soon
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- AVAILABILITY -->
+
+                <div class="gym-card">
+
+                    <div class="gym-card-content">
+
+                        <h2>
+                            ⏰ Availability
+                        </h2>
+
+                        <p>
+                            Manage your available
+                            training time slots.
+                        </p>
+
+
+                        <a href="#"
+                           class="view-gym"
+                           style="
+                               display:block;
+                               text-align:center;
+                               text-decoration:none;
+                               margin-top:20px;
+                           ">
+
+                            Coming Soon
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+            <!-- =========================================
+                 OWNER DASHBOARD
+            ========================================== -->
+
+            {% elif role == "owner" %}
+
+
+                <!-- MY GYM -->
+
+                <div class="gym-card">
+
+                    <div class="gym-card-content">
+
+                        <h2>
+                            🏢 My Gym
+                        </h2>
+
+                        <p>
+                            Manage your gym information,
+                            facilities and timings.
+                        </p>
+
+
+                        <a href="/owner-gym"
+                           class="view-gym"
+                           style="
+                               display:block;
+                               text-align:center;
+                               text-decoration:none;
+                               margin-top:20px;
+                           ">
+
+                            Manage My Gym
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MANAGE TRAINERS -->
+
+                <div class="gym-card">
+
+                    <div class="gym-card-content">
+
+                        <h2>
+                            👨‍🏫 Manage Trainers
+                        </h2>
+
+                        <p>
+                            Add and manage trainers
+                            associated with your gym.
+                        </p>
+
+
+                        <a href="/manage-trainers"
+                           class="view-gym"
+                           style="
+                               display:block;
+                               text-align:center;
+                               text-decoration:none;
+                               margin-top:20px;
+                           ">
+
+                            Manage Trainers
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MEMBERSHIP PLANS -->
+
+                <div class="gym-card">
+
+                    <div class="gym-card-content">
+
+                        <h2>
+                            💳 Membership Plans
+                        </h2>
+
+                        <p>
+                            Create and manage
+                            gym membership plans.
+                        </p>
+
+
+                        <a href="/owner-plans"
+                           class="view-gym"
+                           style="
+                               display:block;
+                               text-align:center;
+                               text-decoration:none;
+                               margin-top:20px;
+                           ">
+
+                            Manage Membership Plans
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+
+            <span>GYM</span>FINDER
+
+        </div>
+
+
+        <p>
+            Find the right gym for your fitness journey.
+        </p>
+
+
+        <p>
+            © 2026 GymFinder. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

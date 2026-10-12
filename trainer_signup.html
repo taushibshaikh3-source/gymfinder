@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trainer Signup | GymFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>GYM</span>FINDER
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/gyms">Gyms</a>
+            <a href="/role-login">Login</a>
+        </div>
+
+    </nav>
+
+
+    <section class="section">
+
+        <p class="section-label">TRAINER ACCOUNT</p>
+
+        <h1>Create Trainer Account</h1>
+
+        <p>
+            Register as a trainer to manage your profile
+            and trainee bookings.
+        </p>
+
+
+        <form method="POST"
+              action="/trainer-signup"
+              style="max-width:500px; margin-top:35px;">
+
+            <label>Name</label>
+
+            <input type="text"
+                   name="name"
+                   placeholder="Enter trainer name"
+                   required
+                   style="width:100%;
+                          padding:14px;
+                          margin:8px 0 20px;
+                          background:#101315;
+                          color:white;
+                          border:1px solid #41464b;
+                          border-radius:6px;">
+
+
+            <label>Email</label>
+
+            <input type="email"
+                   name="email"
+                   placeholder="Enter email"
+                   required
+                   style="width:100%;
+                          padding:14px;
+                          margin:8px 0 20px;
+                          background:#101315;
+                          color:white;
+                          border:1px solid #41464b;
+                          border-radius:6px;">
+
+
+            <label>Password</label>
+
+            <input type="password"
+                   name="password"
+                   placeholder="Create a password"
+                   required
+                   style="width:100%;
+                          padding:14px;
+                          margin:8px 0 25px;
+                          background:#101315;
+                          color:white;
+                          border:1px solid #41464b;
+                          border-radius:6px;">
+
+
+            <button type="submit"
+                    class="view-gym"
+                    style="width:100%;">
+
+                Create Trainer Account
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <footer>
+
+        <div class="footer-logo">
+            <span>GYM</span>FINDER
+        </div>
+
+        <p>
+            Find the right gym for your fitness journey.
+        </p>
+
+        <p>
+            © 2026 GymFinder. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

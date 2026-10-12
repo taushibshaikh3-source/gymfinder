@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Book Trainer | GymFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <span>GYM</span>FINDER
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/gyms">
+            Gyms
+        </a>
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- BOOK TRAINER -->
+
+<section class="section">
+
+    <p class="section-label">
+        TRAINER BOOKING
+    </p>
+
+
+    <h1>
+        Book {{ trainer["name"] }}
+    </h1>
+
+
+    <p style="margin-top:10px;">
+        📍 {{ gym["name"] }}
+    </p>
+
+
+    {% if trainer["specialization"] %}
+
+        <p style="margin-top:15px;">
+            🏋️
+            Specialization:
+            <strong>
+                {{ trainer["specialization"] }}
+            </strong>
+        </p>
+
+    {% endif %}
+
+
+    {% if trainer["experience"] is not none %}
+
+        <p style="margin-top:10px;">
+            ⭐
+            Experience:
+            <strong>
+                {{ trainer["experience"] }} years
+            </strong>
+        </p>
+
+    {% endif %}
+
+
+
+    <!-- BOOKING FORM -->
+
+    <div style="
+        max-width:600px;
+        margin-top:40px;
+    ">
+
+        <h2>
+            Select Your Training Session
+        </h2>
+
+
+        <form method="POST"
+              action="/book-trainer/{{ trainer['id'] }}"
+              style="margin-top:25px;">
+
+
+            <!-- DATE -->
+
+            <label>
+                Booking Date
+            </label>
+
+            <input
+                type="date"
+                name="booking_date"
+                required
+                style="
+                    width:100%;
+                    padding:14px;
+                    margin:8px 0 25px;
+                    background:#101315;
+                    color:white;
+                    border:1px solid #41464b;
+                    border-radius:6px;
+                ">
+
+
+            <!-- TIME -->
+
+            <label>
+                Booking Time
+            </label>
+
+            <input
+                type="time"
+                name="booking_time"
+                required
+                style="
+                    width:100%;
+                    padding:14px;
+                    margin:8px 0 25px;
+                    background:#101315;
+                    color:white;
+                    border:1px solid #41464b;
+                    border-radius:6px;
+                ">
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                style="
+                    width:100%;
+                    padding:15px;
+                    background:#b8ff00;
+                    color:black;
+                    border:none;
+                    border-radius:6px;
+                    cursor:pointer;
+                    font-size:16px;
+                    font-weight:bold;
+                ">
+
+                CONFIRM BOOKING
+
+            </button>
+
+
+        </form>
+
+
+        <!-- BACK -->
+
+        <a
+            href="/gym/{{ gym['id'] }}/trainers"
+            class="view-gym"
+            style="
+                display:block;
+                width:100%;
+                margin-top:15px;
+                text-align:center;
+                text-decoration:none;
+            ">
+
+            ← Back to Trainers
+
+        </a>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+
+        <span>GYM</span>FINDER
+
+    </div>
+
+
+    <p>
+        Find the right gym and trainer
+        for your fitness journey.
+    </p>
+
+
+    <p>
+        © 2026 GymFinder.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

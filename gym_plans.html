@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Membership Plans | GymFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        <span>GYM</span>FINDER
+    </div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/gyms">Gyms</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+</nav>
+
+
+<section class="section">
+
+    <p class="section-label">MEMBERSHIP</p>
+
+    <h1>{{ gym["name"] }}</h1>
+
+    <p>
+        📍 {{ gym["location"] }}
+    </p>
+
+    <div style="
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+        gap:20px;
+        margin-top:40px;
+    ">
+
+        {% if plans %}
+
+            {% for plan in plans %}
+
+                <div class="gym-card">
+
+                    <h2>
+                        {{ plan["plan_name"] }}
+                    </h2>
+
+                    <p style="margin-top:10px;">
+                        {{ plan["duration"] }}
+                    </p>
+
+                    <h2 style="margin-top:20px;">
+                        ₹{{ plan["price"] }}
+                    </h2>
+
+                    {% if plan["description"] %}
+
+                        <p style="margin-top:15px;">
+                            {{ plan["description"] }}
+                        </p>
+
+                    {% endif %}
+
+                    <button class="view-gym"
+                            style="width:100%; margin-top:20px;">
+                        Choose Plan
+                    </button>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>
+                This gym has not added any membership plans yet.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="footer-logo">
+        <span>GYM</span>FINDER
+    </div>
+
+    <p>
+        Gym management made simple.
+    </p>
+
+    <p>
+        © 2026 GymFinder. All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+
+</html>

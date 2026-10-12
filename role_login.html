@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose Login | GymFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>GYM</span>FINDER
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/gyms">Gyms</a>
+            <a href="/login">Login</a>
+            <a href="/signup">Sign Up</a>
+        </div>
+
+    </nav>
+
+
+    <section class="section">
+
+        <p class="section-label">GYMFINDER ACCOUNT</p>
+
+        <h1>Choose Your Login</h1>
+
+        <p>
+            Select the type of account you want to access.
+        </p>
+
+
+        <div class="gym-grid" style="margin-top:40px;">
+
+            <!-- TRAINEE -->
+
+            <div class="gym-card">
+
+                <div class="gym-card-content">
+
+                    <h2>👤 Trainee</h2>
+
+                    <p>
+                        Find gyms, explore trainers,
+                        memberships and fitness services.
+                    </p>
+
+                    <a href="/login?role=trainee"
+                       class="view-gym"
+                       style="display:block;
+                              text-align:center;
+                              text-decoration:none;
+                              margin-top:20px;">
+
+                        Trainee Login
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- TRAINER -->
+
+            <div class="gym-card">
+
+                <div class="gym-card-content">
+
+                    <h2>🏋️ Trainer</h2>
+
+                    <p>
+                        Manage your trainer profile,
+                        availability and trainee bookings.
+                    </p>
+
+                    <a href="/login?role=trainer"
+                       class="view-gym"
+                       style="display:block;
+                              text-align:center;
+                              text-decoration:none;
+                              margin-top:20px;">
+
+                        Trainer Login
+                        <p style="margin-top:20px;">
+    New trainer?
+    <a href="/trainer-signup"
+       style="color:#b8ff00;">
+        Create Trainer Account
+    </a>
+</p>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- GYM OWNER -->
+
+            <div class="gym-card">
+
+                <div class="gym-card-content">
+
+                    <h2>🏢 Gym Owner</h2>
+
+                    <p>
+                        Manage your gym, trainers,
+                        memberships and bookings.
+                    </p>
+
+                    <a href="/login?role=owner"
+                       class="view-gym"
+                       style="display:block;
+                              text-align:center;
+                              text-decoration:none;
+                              margin-top:20px;">
+
+                        Owner Login
+
+                    </a>
+                    <p style="margin-top:20px;">
+    New gym owner?
+    <a href="/owner-signup"
+       style="color:#b8ff00;">
+        Create Owner Account
+    </a>
+</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <div class="footer-logo">
+            <span>GYM</span>FINDER
+        </div>
+
+        <p>
+            Find the right gym for your fitness journey.
+        </p>
+
+        <p>
+            © 2026 GymFinder. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

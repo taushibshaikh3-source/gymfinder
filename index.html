@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GymFinder | Find Your Perfect Gym</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>GYM</span>FINDER
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="#">Gyms</a>
+            <a href="#">Trainers</a>
+            <a href="#">Membership</a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="/role-login">Login</a>
+            <a href="/signup">Sign Up</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-heading">YOUR FITNESS JOURNEY STARTS HERE</p>
+
+            <h1>
+                Find Your
+                <span>Perfect Gym.</span>
+            </h1>
+
+            <p class="hero-text">
+                Discover gyms near you based on your location,
+                budget, fitness goals and preferences.
+            </p>
+
+            <!-- SEARCH BOX -->
+
+            <div class="search-box">
+
+                <div class="search-input">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Search gym or location">
+                </div>
+
+                <button class="location-btn">
+                    📍 Near Me
+                </button>
+
+                <button class="search-btn">
+                    Find Gyms
+                </button>
+
+            </div>
+
+            <div class="hero-features">
+                <span>✓ Nearby Gyms</span>
+                <span>✓ Compare Prices</span>
+                <span>✓ Find Trainers</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FITNESS GOALS -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="section-label">EXPLORE</p>
+
+                <h2>Find a gym for your goal</h2>
+            </div>
+
+            <p>
+                Choose your fitness goal and discover gyms
+                that match your needs.
+            </p>
+
+        </div>
+
+
+        <div class="goal-grid">
+
+            <div class="goal-card">
+                <div class="goal-icon">🔥</div>
+                <h3>Weight Loss</h3>
+                <p>Find gyms with cardio and fat-loss focused training.</p>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-icon">💪</div>
+                <h3>Muscle Gain</h3>
+                <p>Find gyms with strength equipment and trainers.</p>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-icon">🏃</div>
+                <h3>Fitness</h3>
+                <p>Improve your overall health and fitness.</p>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-icon">🌱</div>
+                <h3>Beginner</h3>
+                <p>Find beginner-friendly gyms and trainers.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURED GYMS -->
+
+    <section class="section gyms-section">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="section-label">DISCOVER</p>
+                <h2>Popular gyms near you</h2>
+            </div>
+
+            <a href="/gyms">View all →</a>
+
+        </div>
+
+
+        <div class="gym-grid">
+
+
+            <!-- GYM 1 -->
+
+            <div class="gym-card">
+
+                <div class="gym-image gym-one">
+
+                    <span class="gym-badge">POPULAR</span>
+
+                </div>
+
+                <div class="gym-info">
+
+                    <div class="gym-title">
+
+                        <h3>Iron House Fitness</h3>
+
+                        <span class="rating">
+                            ★ 4.8
+                        </span>
+
+                    </div>
+
+                    <p class="location">
+                        📍 Kurla, Mumbai
+                    </p>
+
+                    <div class="gym-details">
+
+                        <span>₹1,500/month</span>
+                        <span>•</span>
+                        <span>Open till 11 PM</span>
+
+                    </div>
+
+                    <button class="view-gym">
+                        View Gym
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- GYM 2 -->
+
+            <div class="gym-card">
+
+                <div class="gym-image gym-two">
+
+                    <span class="gym-badge">TOP RATED</span>
+
+                </div>
+
+                <div class="gym-info">
+
+                    <div class="gym-title">
+
+                        <h3>PowerZone Gym</h3>
+
+                        <span class="rating">
+                            ★ 4.6
+                        </span>
+
+                    </div>
+
+                    <p class="location">
+                        📍 Ghatkopar, Mumbai
+                    </p>
+
+                    <div class="gym-details">
+
+                        <span>₹1,800/month</span>
+                        <span>•</span>
+                        <span>Open till 10 PM</span>
+
+                    </div>
+
+                    <button class="view-gym">
+                        View Gym
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- GYM 3 -->
+
+            <div class="gym-card">
+
+                <div class="gym-image gym-three">
+
+                    <span class="gym-badge">BUDGET</span>
+
+                </div>
+
+                <div class="gym-info">
+
+                    <div class="gym-title">
+
+                        <h3>FitZone Studio</h3>
+
+                        <span class="rating">
+                            ★ 4.5
+                        </span>
+
+                    </div>
+
+                    <p class="location">
+                        📍 Sion, Mumbai
+                    </p>
+
+                    <div class="gym-details">
+
+                        <span>₹1,200/month</span>
+                        <span>•</span>
+                        <span>Open till 10 PM</span>
+
+                    </div>
+
+                    <button class="view-gym">
+                        View Gym
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SMART RECOMMENDATION -->
+
+    <section class="recommendation">
+
+        <div>
+
+            <p class="section-label">SMART RECOMMENDATION</p>
+
+            <h2>Not sure which gym to choose?</h2>
+
+            <p>
+                Tell us your budget, fitness goal and preferred
+                distance. GymFinder will help you discover gyms
+                that match your preferences.
+            </p>
+
+            <button class="recommend-btn">
+                Get My Recommendations →
+            </button>
+
+        </div>
+
+        <div class="recommend-box">
+
+            <div>💰</div>
+            <span>Budget</span>
+
+            <div>🎯</div>
+            <span>Fitness Goal</span>
+
+            <div>📍</div>
+            <span>Distance</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            <span>GYM</span>FINDER
+        </div>
+
+        <p>
+            Find the right gym. Start your fitness journey.
+        </p>
+
+        <p class="copyright">
+            © 2026 GymFinder. College Mini Project.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

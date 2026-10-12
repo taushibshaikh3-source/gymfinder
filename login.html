@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | GymFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>GYM</span>FINDER
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/gyms">Gyms</a>
+            <a href="#">Trainers</a>
+            <a href="#">Membership</a>
+            <a href="/login">Login</a>
+            <a href="/signup">Sign Up</a>
+        </div>
+
+    </nav>
+
+
+    <!-- LOGIN SECTION -->
+    <section class="section">
+
+        <p class="section-label">WELCOME BACK</p>
+
+        <h1>Login as {{ role|capitalize }}</h1>
+        <p>
+            Login to access your GymFinder account.
+        </p>
+
+
+        <form method="POST"
+              action="/login"
+              style="max-width:500px; margin-top:35px;">
+              <input type="hidden"
+       name="role"
+       value="{{ role }}">
+
+            <label>Email</label>
+
+            <input type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   required
+                   style="width:100%;
+                          padding:14px;
+                          margin:8px 0 20px;
+                          background:#101315;
+                          color:white;
+                          border:1px solid #41464b;
+                          border-radius:6px;">
+
+
+            <label>Password</label>
+
+            <input type="password"
+                   name="password"
+                   placeholder="Enter your password"
+                   required
+                   style="width:100%;
+                          padding:14px;
+                          margin:8px 0 25px;
+                          background:#101315;
+                          color:white;
+                          border:1px solid #41464b;
+                          border-radius:6px;">
+
+
+            <button type="submit"
+                    class="view-gym"
+                    style="width:100%;">
+
+                Login
+
+            </button>
+
+        </form>
+
+
+        <p style="margin-top:25px;">
+
+            Don't have an account?
+
+            <a href="/signup"
+               style="color:#b8ff00;">
+
+                Sign Up
+
+            </a>
+
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            <span>GYM</span>FINDER
+        </div>
+
+        <p>
+            Find the right gym for your fitness journey.
+        </p>
+
+        <p>
+            © 2026 GymFinder. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

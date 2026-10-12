@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Trainers | GymFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        <span>GYM</span>FINDER
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/owner-gym">
+            My Gym
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="section">
+
+    <p class="section-label">
+        OWNER PANEL
+    </p>
+
+    <h1>
+        Manage Trainers
+    </h1>
+
+    <p>
+        Add and manage trainers for
+        <strong>{{ gym["name"] }}</strong>.
+    </p>
+
+
+    <!-- ADD TRAINER -->
+
+    <div style="
+        margin-top:35px;
+        max-width:600px;
+    ">
+
+        <h2>
+            Add New Trainer
+        </h2>
+
+
+        <form method="POST"
+              action="/manage-trainers"
+              style="margin-top:20px;">
+
+
+            <label>
+                Trainer Name
+            </label>
+
+            <input type="text"
+                   name="name"
+                   placeholder="Example: Rahul Sharma"
+                   required
+                   style="
+                       width:100%;
+                       padding:14px;
+                       margin:8px 0 20px;
+                       background:#101315;
+                       color:white;
+                       border:1px solid #41464b;
+                       border-radius:6px;
+                   ">
+
+
+            <label>
+                Specialization
+            </label>
+
+            <input type="text"
+                   name="specialization"
+                   placeholder="Example: Weight Training"
+                   style="
+                       width:100%;
+                       padding:14px;
+                       margin:8px 0 20px;
+                       background:#101315;
+                       color:white;
+                       border:1px solid #41464b;
+                       border-radius:6px;
+                   ">
+
+
+            <label>
+                Experience (Years)
+            </label>
+
+            <input type="number"
+                   name="experience"
+                   placeholder="Example: 5"
+                   min="0"
+                   style="
+                       width:100%;
+                       padding:14px;
+                       margin:8px 0 20px;
+                       background:#101315;
+                       color:white;
+                       border:1px solid #41464b;
+                       border-radius:6px;
+                   ">
+
+
+            <label>
+                Phone
+            </label>
+
+            <input type="text"
+                   name="phone"
+                   placeholder="Example: 9876543210"
+                   style="
+                       width:100%;
+                       padding:14px;
+                       margin:8px 0 20px;
+                       background:#101315;
+                       color:white;
+                       border:1px solid #41464b;
+                       border-radius:6px;
+                   ">
+
+
+            <label>
+                Availability
+            </label>
+
+            <input type="text"
+                   name="availability"
+                   placeholder="Example: 6 AM - 12 PM"
+                   style="
+                       width:100%;
+                       padding:14px;
+                       margin:8px 0 25px;
+                       background:#101315;
+                       color:white;
+                       border:1px solid #41464b;
+                       border-radius:6px;
+                   ">
+
+
+            <button type="submit"
+                    style="
+                        width:100%;
+                        padding:15px;
+                        background:#b8ff00;
+                        color:black;
+                        border:none;
+                        border-radius:6px;
+                        cursor:pointer;
+                        font-size:16px;
+                        font-weight:bold;
+                    ">
+
+                ADD TRAINER
+
+            </button>
+
+
+        </form>
+
+    </div>
+
+
+    <!-- EXISTING TRAINERS -->
+
+    <div style="
+        margin-top:60px;
+    ">
+
+        <h2>
+            Your Trainers
+        </h2>
+
+
+        {% if trainers %}
+
+            <div style="
+                display:grid;
+                grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+                gap:20px;
+                margin-top:25px;
+            ">
+
+
+                {% for trainer in trainers %}
+
+                    <div class="gym-card">
+
+                        <h2>
+                            {{ trainer["name"] }}
+                        </h2>
+
+
+                        {% if trainer["specialization"] %}
+
+                            <p style="margin-top:10px;">
+                                🏋️
+                                {{ trainer["specialization"] }}
+                            </p>
+
+                        {% endif %}
+
+
+                        {% if trainer["experience"] is not none %}
+
+                            <p style="margin-top:10px;">
+                                ⭐
+                                {{ trainer["experience"] }}
+                                years experience
+                            </p>
+
+                        {% endif %}
+
+
+                        {% if trainer["phone"] %}
+
+                            <p style="margin-top:10px;">
+                                📞
+                                {{ trainer["phone"] }}
+                            </p>
+
+                        {% endif %}
+
+
+                        {% if trainer["availability"] %}
+
+                            <p style="margin-top:10px;">
+                                🕐
+                                {{ trainer["availability"] }}
+                            </p>
+
+                        {% endif %}
+
+
+                    </div>
+
+                {% endfor %}
+
+
+            </div>
+
+
+        {% else %}
+
+            <p style="margin-top:20px;">
+                No trainers added yet.
+            </p>
+
+        {% endif %}
+
+
+    </div>
+
+
+</section>
+
+
+<footer>
+
+    <div class="footer-logo">
+
+        <span>GYM</span>FINDER
+
+    </div>
+
+
+    <p>
+        Gym management made simple.
+    </p>
+
+
+    <p>
+        © 2026 GymFinder.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

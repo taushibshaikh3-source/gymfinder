@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Gyms | GymFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>GYM</span>FINDER
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/gyms">Gyms</a>
+            <a href="#">Trainers</a>
+            <a href="#">Membership</a>
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+
+    </nav>
+
+
+    <!-- GYM PAGE HEADER -->
+    <section class="gym-page-header">
+
+        <p class="section-label">EXPLORE</p>
+
+        <h1>Find Your Gym</h1>
+
+        <p>
+            Discover gyms that match your fitness goals,
+            budget and location.
+        </p>
+
+    </section>
+
+
+    <!-- GYM LIST -->
+    <section class="section">
+        <div style="margin-bottom:40px;">
+    <input
+        type="text"
+        id="gymSearch"
+        placeholder="Search gym or location..."
+        style="width:100%;
+               padding:15px;
+               border-radius:8px;
+               border:1px solid #41464b;
+               background:#101315;
+               color:white;
+               font-size:16px;">
+</div>
+
+        <div style="display:flex; gap:15px; margin-bottom:40px; flex-wrap:wrap;">
+
+    <select id="priceFilter"
+            style="padding:12px;
+                   border-radius:8px;
+                   background:#101315;
+                   color:white;
+                   border:1px solid #41464b;">
+
+        <option value="all">All Prices</option>
+        <option value="1200">Up to ₹1200</option>
+        <option value="1500">Up to ₹1500</option>
+        <option value="1800">Up to ₹1800</option>
+
+    </select>
+
+
+    <select id="ratingFilter"
+            style="padding:12px;
+                   border-radius:8px;
+                   background:#101315;
+                   color:white;
+                   border:1px solid #41464b;">
+
+        <option value="all">All Ratings</option>
+        <option value="4.8">4.8+ Rating</option>
+        <option value="4.6">4.6+ Rating</option>
+        <option value="4.5">4.5+ Rating</option>
+
+    </select>
+
+</div>
+
+        <div class="gym-grid">
+
+            {% for gym in gyms %}
+
+            <div class="gym-card">
+            <div class="gym-image">
+    {% if gym['name'] == 'Iron House Fitness' %}
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48"
+             alt="Iron House Fitness">
+    {% elif gym['name'] == 'PowerZone Gym' %}
+        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f"
+             alt="PowerZone Gym">
+    {% else %}
+        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e"
+             alt="FitZone Studio">
+    {% endif %}
+</div>
+
+                <div class="gym-card-content">
+
+                    <h2>
+                        {{ gym['name'] }}
+                    </h2>
+
+                    <p class="location">
+                        📍 {{ gym['location'] }}
+                    </p>
+
+                    <p>
+                        ⭐ {{ gym['rating'] }}
+                    </p>
+
+                    <p>
+                        ₹{{ gym['price'] }} / month
+                    </p>
+
+                    <p>
+                        🕐 {{ gym['opening_time'] }}
+                        -
+                        {{ gym['closing_time'] }}
+                    </p>
+
+                    <p class="gym-description">
+                        {{ gym['description'] }}
+                    </p>
+<!-- VIEW GYM BUTTON -->
+<a href="/gym/{{ gym['id'] }}"
+   style="display:block;
+          position:relative;
+          z-index:9999;
+          color:white;
+          background:#b8ff00;
+          padding:15px;
+          text-align:center;
+          text-decoration:none;
+          cursor:pointer;">
+    OPEN GYM DETAILS
+</a>
+
+<!-- MEMBERSHIP PLANS BUTTON -->
+<a href="/gym/{{ gym['id'] }}/plans"
+   style="display:block;
+          position:relative;
+          z-index:9999;
+          color:white;
+          background:#222;
+          padding:15px;
+          text-align:center;
+          text-decoration:none;
+          cursor:pointer;
+          margin-top:10px;">
+    VIEW MEMBERSHIP PLANS
+</a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+    <div style="text-align:center; margin-top:40px;">
+        <a href="/" class="view-gym">
+            ← Back to Home
+        </a>
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            <span>GYM</span>FINDER
+        </div>
+
+        <p>
+            Find the right gym for your fitness journey.
+        </p>
+
+        <p>
+            © 2026 GymFinder. All rights reserved.
+        </p>
+
+    </footer>
+
+<script>
+
+    const searchBox = document.getElementById("gymSearch");
+    const priceFilter = document.getElementById("priceFilter");
+    const ratingFilter = document.getElementById("ratingFilter");
+
+    const gymCards = document.querySelectorAll(".gym-card");
+
+
+    function filterGyms() {
+
+        const searchText = searchBox.value.toLowerCase();
+        const selectedPrice = priceFilter.value;
+        const selectedRating = ratingFilter.value;
+
+
+        gymCards.forEach(function(card) {
+
+            const gymText = card.innerText.toLowerCase();
+
+            const priceText = card.querySelector(".gym-card-content").innerText;
+
+            const priceMatch =
+                selectedPrice === "all" ||
+                priceText.includes("₹" + selectedPrice);
+
+            const ratingMatch =
+                selectedRating === "all" ||
+                parseFloat(
+                    card.querySelector(".gym-card-content").innerText
+                    .match(/⭐\s*([\d.]+)/)[1]
+                ) >= parseFloat(selectedRating);
+
+
+            const searchMatch =
+                gymText.includes(searchText);
+
+
+            if (searchMatch && priceMatch && ratingMatch) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+    }
+
+
+    searchBox.addEventListener("input", filterGyms);
+
+    priceFilter.addEventListener("change", filterGyms);
+
+    ratingFilter.addEventListener("change", filterGyms);
+
+</script>
+
+</body>
+
+</html>

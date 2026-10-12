@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Trainers | GymFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <span>GYM</span>FINDER
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/gyms">
+            Gyms
+        </a>
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- TRAINERS SECTION -->
+
+<section class="section">
+
+    <p class="section-label">
+        TRAINERS
+    </p>
+
+
+    <h1>
+        Trainers at {{ gym["name"] }}
+    </h1>
+
+
+    <p style="margin-top:10px;">
+        📍 {{ gym["location"] }}
+    </p>
+
+
+
+    <!-- TRAINER CARDS -->
+
+    {% if trainers %}
+
+        <div class="gym-grid"
+             style="margin-top:40px;">
+
+
+            {% for trainer in trainers %}
+
+                <div class="gym-card">
+
+                    <div class="gym-card-content">
+
+
+                        <h2>
+                            {{ trainer["name"] }}
+                        </h2>
+
+
+                        {% if trainer["specialization"] %}
+
+                            <p style="margin-top:15px;">
+                                🏋️
+                                <strong>
+                                    Specialization:
+                                </strong>
+
+                                {{ trainer["specialization"] }}
+                            </p>
+
+                        {% endif %}
+
+
+                        {% if trainer["experience"] is not none %}
+
+                            <p style="margin-top:12px;">
+                                ⭐
+                                <strong>
+                                    Experience:
+                                </strong>
+
+                                {{ trainer["experience"] }}
+                                years
+                            </p>
+
+                        {% endif %}
+
+
+                        {% if trainer["availability"] %}
+
+                            <p style="margin-top:12px;">
+                                🕐
+                                <strong>
+                                    Availability:
+                                </strong>
+
+                                {{ trainer["availability"] }}
+                            </p>
+
+                        {% endif %}
+
+
+                        {% if trainer["phone"] %}
+
+                            <p style="margin-top:12px;">
+                                📞
+                                <strong>
+                                    Contact:
+                                </strong>
+
+                                {{ trainer["phone"] }}
+                            </p>
+
+                        {% endif %}
+
+
+                        <a href="/book-trainer/{{ trainer['id'] }}"
+   class="view-gym"
+   style="
+       display:block;
+       width:100%;
+       margin-top:25px;
+       text-align:center;
+       text-decoration:none;
+   ">
+
+    Book Trainer
+
+</a>
+
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+
+        </div>
+
+
+    {% else %}
+
+        <div style="
+            margin-top:40px;
+            padding:30px;
+            background:#101315;
+            border-radius:8px;
+        ">
+
+            <h2>
+                No trainers available
+            </h2>
+
+            <p style="margin-top:10px;">
+                This gym has not added any trainers yet.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+
+    <!-- BACK BUTTON -->
+
+    <div style="margin-top:40px;">
+
+        <a href="/gym/{{ gym['id'] }}"
+           class="view-gym"
+           style="
+               display:inline-block;
+               text-decoration:none;
+           ">
+
+            ← Back to Gym
+
+        </a>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+
+        <span>GYM</span>FINDER
+
+    </div>
+
+
+    <p>
+        Find the right gym and trainer
+        for your fitness journey.
+    </p>
+
+
+    <p>
+        © 2026 GymFinder.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

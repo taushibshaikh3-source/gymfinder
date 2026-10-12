@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Gym | GymFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        <span>GYM</span>FINDER
+    </div>
+
+    <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/gyms">Gyms</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+</nav>
+
+
+<section class="section">
+
+    <p class="section-label">OWNER PANEL</p>
+
+    <h1>Edit Your Gym</h1>
+
+    <p>
+        Update your gym information below.
+    </p>
+
+
+    <form method="POST"
+          action="/edit-gym"
+          style="max-width:600px; margin-top:35px;">
+
+        <label>Gym Name</label>
+
+        <input type="text"
+               name="name"
+               value="{{ gym['name'] }}"
+               required
+               style="width:100%;
+                      padding:14px;
+                      margin:8px 0 20px;
+                      background:#101315;
+                      color:white;
+                      border:1px solid #41464b;
+                      border-radius:6px;">
+
+
+        <label>Location</label>
+
+        <input type="text"
+               name="location"
+               value="{{ gym['location'] }}"
+               required
+               style="width:100%;
+                      padding:14px;
+                      margin:8px 0 20px;
+                      background:#101315;
+                      color:white;
+                      border:1px solid #41464b;
+                      border-radius:6px;">
+
+
+        <label>Monthly Price</label>
+
+        <input type="number"
+               name="price"
+               value="{{ gym['price'] }}"
+               required
+               style="width:100%;
+                      padding:14px;
+                      margin:8px 0 20px;
+                      background:#101315;
+                      color:white;
+                      border:1px solid #41464b;
+                      border-radius:6px;">
+
+
+        <label>Opening Time</label>
+
+        <input type="text"
+               name="opening_time"
+               value="{{ gym['opening_time'] }}"
+               required
+               style="width:100%;
+                      padding:14px;
+                      margin:8px 0 20px;
+                      background:#101315;
+                      color:white;
+                      border:1px solid #41464b;
+                      border-radius:6px;">
+
+
+        <label>Closing Time</label>
+
+        <input type="text"
+               name="closing_time"
+               value="{{ gym['closing_time'] }}"
+               required
+               style="width:100%;
+                      padding:14px;
+                      margin:8px 0 25px;
+                      background:#101315;
+                      color:white;
+                      border:1px solid #41464b;
+                      border-radius:6px;">
+
+
+        <label>Description</label>
+
+        <textarea name="description"
+                  required
+                  style="width:100%;
+                         min-height:120px;
+                         padding:14px;
+                         margin:8px 0 25px;
+                         background:#101315;
+                         color:white;
+                         border:1px solid #41464b;
+                         border-radius:6px;">{{ gym['description'] }}</textarea>
+
+
+        <button type="submit"
+                class="view-gym"
+                style="width:100%;">
+
+            Save Changes
+
+        </button>
+
+    </form>
+
+
+    <div style="margin-top:20px;">
+
+        <a href="/owner-gym" class="view-gym">
+            Cancel
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="footer-logo">
+        <span>GYM</span>FINDER
+    </div>
+
+    <p>
+        Gym management made simple.
+    </p>
+
+    <p>
+        © 2026 GymFinder. All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+
+</html>

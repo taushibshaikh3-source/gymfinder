@@ -1,0 +1,279 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ gym['name'] }} | GymFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>GYM</span>FINDER
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/gyms">
+                Gyms
+            </a>
+
+            <a href="/dashboard">
+                Dashboard
+            </a>
+
+            <a href="/logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- GYM DETAILS -->
+
+    <section class="section">
+
+        <p class="section-label">
+            GYM DETAILS
+        </p>
+
+
+        <h1>
+            {{ gym['name'] }}
+        </h1>
+
+
+        <p class="location">
+            📍 {{ gym['location'] }}
+        </p>
+
+
+
+        <!-- BASIC INFORMATION -->
+
+        <div style="margin-top:30px;">
+
+            <h2>
+                ⭐ {{ gym['rating'] }}
+            </h2>
+
+
+            <p style="margin-top:12px;">
+
+                <strong>
+                    Monthly Price:
+                </strong>
+
+                ₹{{ gym['price'] }}
+
+            </p>
+
+
+            <p style="margin-top:12px;">
+
+                <strong>
+                    Opening Hours:
+                </strong>
+
+                🕐 {{ gym['opening_time'] }}
+
+                -
+
+                {{ gym['closing_time'] }}
+
+            </p>
+
+        </div>
+
+
+
+        <!-- ABOUT GYM -->
+
+        <div style="margin-top:35px;">
+
+            <h2>
+                About This Gym
+            </h2>
+
+
+            <p class="gym-description">
+
+                {{ gym['description'] }}
+
+            </p>
+
+        </div>
+
+
+
+        <!-- GYM FEATURES -->
+
+        <div style="
+            margin-top:40px;
+            display:grid;
+            grid-template-columns:
+            repeat(auto-fit, minmax(220px, 1fr));
+            gap:20px;
+        ">
+
+
+            <!-- TRAINERS -->
+
+            <div class="gym-card">
+
+                <div class="gym-card-content">
+
+                    <h2>
+                        👨‍🏫 Trainers
+                    </h2>
+
+
+                    <p style="margin-top:12px;">
+
+                        View trainers available
+                        at this gym.
+
+                    </p>
+
+
+                    <a href="/gym/{{ gym['id'] }}/trainers"
+                       class="view-gym"
+                       style="
+                           display:block;
+                           text-align:center;
+                           text-decoration:none;
+                           margin-top:20px;
+                       ">
+
+                        View Trainers
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MEMBERSHIP -->
+
+            <div class="gym-card">
+
+                <div class="gym-card-content">
+
+                    <h2>
+                        💳 Membership
+                    </h2>
+
+
+                    <p style="margin-top:12px;">
+
+                        Explore membership plans
+                        and pricing.
+
+                    </p>
+
+
+                    <a href="/gym/{{ gym['id'] }}/plans"
+                       class="view-gym"
+                       style="
+                           display:block;
+                           text-align:center;
+                           text-decoration:none;
+                           margin-top:20px;
+                       ">
+
+                        View Membership Plans
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- BACK BUTTON -->
+
+        <div style="margin-top:40px;">
+
+            <a href="/gyms"
+               class="view-gym"
+               style="
+                   display:inline-block;
+                   width:auto;
+                   padding:12px 25px;
+                   text-decoration:none;
+               ">
+
+                ← Back to Gyms
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+
+            <span>GYM</span>FINDER
+
+        </div>
+
+
+        <p>
+
+            Find the right gym for your
+            fitness journey.
+
+        </p>
+
+
+        <p>
+
+            © 2026 GymFinder.
+            All rights reserved.
+
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+```
