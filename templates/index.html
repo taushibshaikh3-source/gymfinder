@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GymFinder | Find Your Perfect Gym</title>
+    <title>FitSphere 360 | Find Your Perfect Gym</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
@@ -16,14 +17,14 @@
     <nav class="navbar">
 
         <div class="logo">
-            <span>GYM</span>FINDER
+            <span>FitSphere</span> 360
         </div>
 
         <div class="nav-links">
             <a href="/">Home</a>
-            <a href="#">Gyms</a>
-            <a href="#">Trainers</a>
-            <a href="#">Membership</a>
+            <a href="/gyms">Gyms</a>
+            <a href="/gyms">Trainers</a>
+            <a href="/gyms">Membership</a>
         </div>
 
         <div class="nav-buttons">
@@ -35,7 +36,6 @@
 
 
     <!-- HERO SECTION -->
-
     <section class="hero">
 
         <div class="hero-content">
@@ -53,7 +53,6 @@
             </p>
 
             <!-- SEARCH BOX -->
-
             <div class="search-box">
 
                 <div class="search-input">
@@ -83,14 +82,12 @@
 
 
     <!-- FITNESS GOALS -->
-
     <section class="section">
 
         <div class="section-heading">
 
             <div>
                 <p class="section-label">EXPLORE</p>
-
                 <h2>Find a gym for your goal</h2>
             </div>
 
@@ -100,7 +97,6 @@
             </p>
 
         </div>
-
 
         <div class="goal-grid">
 
@@ -134,7 +130,6 @@
 
 
     <!-- FEATURED GYMS -->
-
     <section class="section gyms-section">
 
         <div class="section-heading">
@@ -148,47 +143,31 @@
 
         </div>
 
-
         <div class="gym-grid">
 
-
             <!-- GYM 1 -->
-
             <div class="gym-card">
 
                 <div class="gym-image gym-one">
-
                     <span class="gym-badge">POPULAR</span>
-
                 </div>
 
                 <div class="gym-info">
 
                     <div class="gym-title">
-
                         <h3>Iron House Fitness</h3>
-
-                        <span class="rating">
-                            ★ 4.8
-                        </span>
-
+                        <span class="rating">★ 4.8</span>
                     </div>
 
-                    <p class="location">
-                        📍 Kurla, Mumbai
-                    </p>
+                    <p class="location">📍 Kurla, Mumbai</p>
 
                     <div class="gym-details">
-
                         <span>₹1,500/month</span>
                         <span>•</span>
                         <span>Open till 11 PM</span>
-
                     </div>
 
-                    <button class="view-gym">
-                        View Gym
-                    </button>
+                    <a href="/gyms" class="view-gym">View Gym</a>
 
                 </div>
 
@@ -196,42 +175,28 @@
 
 
             <!-- GYM 2 -->
-
             <div class="gym-card">
 
                 <div class="gym-image gym-two">
-
                     <span class="gym-badge">TOP RATED</span>
-
                 </div>
 
                 <div class="gym-info">
 
                     <div class="gym-title">
-
                         <h3>PowerZone Gym</h3>
-
-                        <span class="rating">
-                            ★ 4.6
-                        </span>
-
+                        <span class="rating">★ 4.6</span>
                     </div>
 
-                    <p class="location">
-                        📍 Ghatkopar, Mumbai
-                    </p>
+                    <p class="location">📍 Ghatkopar, Mumbai</p>
 
                     <div class="gym-details">
-
                         <span>₹1,800/month</span>
                         <span>•</span>
                         <span>Open till 10 PM</span>
-
                     </div>
 
-                    <button class="view-gym">
-                        View Gym
-                    </button>
+                    <a href="/gyms" class="view-gym">View Gym</a>
 
                 </div>
 
@@ -239,42 +204,28 @@
 
 
             <!-- GYM 3 -->
-
             <div class="gym-card">
 
                 <div class="gym-image gym-three">
-
                     <span class="gym-badge">BUDGET</span>
-
                 </div>
 
                 <div class="gym-info">
 
                     <div class="gym-title">
-
                         <h3>FitZone Studio</h3>
-
-                        <span class="rating">
-                            ★ 4.5
-                        </span>
-
+                        <span class="rating">★ 4.5</span>
                     </div>
 
-                    <p class="location">
-                        📍 Sion, Mumbai
-                    </p>
+                    <p class="location">📍 Sion, Mumbai</p>
 
                     <div class="gym-details">
-
                         <span>₹1,200/month</span>
                         <span>•</span>
                         <span>Open till 10 PM</span>
-
                     </div>
 
-                    <button class="view-gym">
-                        View Gym
-                    </button>
+                    <a href="/gyms" class="view-gym">View Gym</a>
 
                 </div>
 
@@ -286,7 +237,6 @@
 
 
     <!-- SMART RECOMMENDATION -->
-
     <section class="recommendation">
 
         <div>
@@ -297,13 +247,13 @@
 
             <p>
                 Tell us your budget, fitness goal and preferred
-                distance. GymFinder will help you discover gyms
-                that match your preferences.
+                distance. FitSphere 360 helps you explore gyms
+                and discover options that match your preferences.
             </p>
 
-            <button class="recommend-btn">
-                Get My Recommendations →
-            </button>
+            <a href="/gyms" class="recommend-btn">
+                Explore Gyms →
+            </a>
 
         </div>
 
@@ -324,24 +274,24 @@
 
 
     <!-- FOOTER -->
-
     <footer>
 
         <div class="footer-logo">
-            <span>GYM</span>FINDER
+            <span>FitSphere</span> 360
         </div>
 
         <p>
-            Find the right gym. Start your fitness journey.
+            Find the right gym. Build your fitness journey
+            with FitSphere 360.
         </p>
 
         <p class="copyright">
-            © 2026 GymFinder. College Mini Project.
+            © 2026 FitSphere 360. College Mini Project.
         </p>
 
     </footer>
 
-
 </body>
 
 </html>
+```
